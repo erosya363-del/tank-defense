@@ -1,0 +1,597 @@
+/* ==================== OVERLAY SCREENS ==================== */
+
+.screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.screen h1, .screen h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #4a9eff;
+  text-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
+}
+
+.screen h2 {
+  font-size: 28px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-btn {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 8px;
+  pointer-events: auto;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4a9eff, #00ff88);
+  color: #000;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.menu-btn:active, .menu-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 158, 255, 0.4);
+}
+
+.menu-btn:active {
+  transform: translateY(0);
+}
+
+/* ==================== MENU SCREEN ==================== */
+#menu-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#menu-screen.active {
+  display: flex;
+}
+
+#menu-screen h1 {
+  font-size: 42px;
+  margin: 0;
+  color: #4a9eff;
+  text-shadow: 0 0 20px rgba(74, 158, 255, 0.6);
+  animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+#menu-screen .subtitle {
+  font-size: 16px;
+  color: #00ff88;
+  margin: 0 0 30px 0;
+}
+
+#menu-screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  gap: 12px;
+}
+
+#menu-screen .menu-btn {
+  width: 100%;
+}
+
+#menu-screen > div > div {
+  font-size: 12px;
+  color: #668;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ==================== PAUSE SCREEN ==================== */
+#pause-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  pointer-events: auto;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#pause-screen.active {
+  display: flex;
+}
+
+#pause-screen h2 {
+  font-size: 48px;
+  color: #4a9eff;
+}
+
+#pause-screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  gap: 12px;
+}
+
+#pause-screen .menu-btn {
+  width: 100%;
+}
+
+/* ==================== GAMEOVER SCREEN ==================== */
+#gameover-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  pointer-events: auto;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#gameover-screen.active {
+  display: flex;
+}
+
+#gameover-screen h2 {
+  font-size: 48px;
+  color: #ff6666;
+}
+
+.stat-line {
+  font-size: 18px;
+  color: #aaa;
+  text-align: center;
+}
+
+.stat-line span {
+  color: #ffff00;
+  font-weight: bold;
+}
+
+#gameover-screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  gap: 20px;
+}
+
+#gameover-screen .menu-btn {
+  width: 100%;
+}
+
+/* ==================== VICTORY SCREEN ==================== */
+#victory-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a3a1a 0%, #2d5f2d 100%);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  pointer-events: auto;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#victory-screen.active {
+  display: flex;
+}
+
+#victory-screen h2 {
+  font-size: 48px;
+  color: #00ff88;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+#victory-screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  gap: 20px;
+}
+
+#victory-screen .menu-btn {
+  width: 100%;
+}
+
+/* ==================== LEVEL SCREEN ==================== */
+#level-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#level-screen.active {
+  display: flex;
+}
+
+#level-screen h2 {
+  font-size: 36px;
+  color: #00ff88;
+}
+
+#ls-stats {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  background: rgba(74, 158, 255, 0.1);
+  border-left: 4px solid #4a9eff;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#ls-stats div {
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+#ls-stats span {
+  color: #ffff00;
+  font-weight: bold;
+}
+
+#level-screen > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  gap: 12px;
+}
+
+#level-screen .menu-btn {
+  width: 100%;
+}
+
+/* ==================== UPGRADE SCREEN ==================== */
+#upgrade-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#upgrade-screen.active {
+  display: flex;
+}
+
+#upgrade-screen h2 {
+  font-size: 36px;
+  color: #4a9eff;
+}
+
+#upgrade-panel {
+  width: 100%;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  padding: 20px;
+}
+
+.upgrade-item {
+  background: rgba(74, 158, 255, 0.1);
+  border: 2px solid #4a9eff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+.upgrade-item:active, .upgrade-item:hover {
+  background: rgba(74, 158, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.upgrade-item-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4a9eff;
+  margin-bottom: 8px;
+}
+
+.upgrade-item-desc {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.upgrade-item-cost {
+  font-size: 12px;
+  color: #ffff00;
+  font-weight: bold;
+}
+
+/* ==================== SETTINGS SCREEN ==================== */
+#settings-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#settings-screen.active {
+  display: flex;
+}
+
+#settings-screen h2 {
+  font-size: 36px;
+  color: #4a9eff;
+}
+
+#settings-panel {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.setting-item {
+  background: rgba(74, 158, 255, 0.1);
+  border-left: 4px solid #4a9eff;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-label {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.setting-toggle, .setting-slider {
+  cursor: pointer;
+  pointer-events: auto;
+  accent-color: #4a9eff;
+  width: 50px;
+  height: 24px;
+}
+
+.setting-slider {
+  width: 100px;
+  height: 6px;
+}
+
+/* ==================== RESPONSIVE SCREENS ==================== */
+
+@media (max-width: 480px) {
+  .screen h1, #menu-screen h1 {
+    font-size: 32px;
+  }
+  
+  .screen h2, #menu-screen h2, #pause-screen h2, #gameover-screen h2, #victory-screen h2,
+  #level-screen h2, #upgrade-screen h2, #settings-screen h2 {
+    font-size: 26px;
+  }
+  
+  .menu-btn {
+    max-width: 280px;
+    height: 45px;
+    font-size: 14px;
+  }
+  
+  .stat-line {
+    font-size: 16px;
+  }
+  
+  #ls-stats {
+    max-width: 280px;
+    padding: 15px;
+    font-size: 12px;
+  }
+  
+  #upgrade-panel {
+    max-width: 350px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  #settings-panel {
+    max-width: 350px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .screen h1, #menu-screen h1 {
+    font-size: 28px;
+  }
+  
+  .screen h2, #menu-screen h2, #pause-screen h2, #gameover-screen h2, #victory-screen h2,
+  #level-screen h2, #upgrade-screen h2, #settings-screen h2 {
+    font-size: 22px;
+  }
+  
+  .menu-btn {
+    max-width: 250px;
+    height: 42px;
+    font-size: 13px;
+  }
+  
+  #menu-screen > div {
+    max-width: 280px;
+  }
+  
+  #upgrade-panel {
+    max-width: 320px;
+  }
+  
+  #settings-panel {
+    max-width: 320px;
+  }
+}
+
+/* Ландшафтная ориентация */
+@media (max-height: 600px) {
+  .screen h1, #menu-screen h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .screen h2, #pause-screen h2, #gameover-screen h2, #victory-screen h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .menu-btn {
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  #upgrade-panel, #settings-panel {
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  #upgrade-screen > div,
+  #settings-screen > div {
+    gap: 8px;
+  }
+}
+
+/* Dark Mode поддержка */
+@media (prefers-color-scheme: dark) {
+  .screen, #pause-screen, #gameover-screen, #level-screen, #upgrade-screen, #settings-screen {
+    background: rgba(0, 0, 0, 0.98);
+  }
+  
+  #menu-screen {
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2d 100%);
+  }
+  
+  #victory-screen {
+    background: linear-gradient(135deg, #0d2d0d 0%, #1a4d1a 100%);
+  }
+}
+
+/* Экран с низкой частотой обновления */
+@media (prefers-reduced-motion: reduce) {
+  .menu-btn, .upgrade-item {
+    transition: none;
+  }
+  
+  #menu-screen h1 {
+    animation: none;
+  }
+}
