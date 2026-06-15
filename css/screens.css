@@ -1,0 +1,86 @@
+/* ==================== SCREENS STYLES ==================== */
+#menu-screen{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a2e,#1a1a3e);z-index:100;color:#fff;text-align:center;padding:env(safe-area-inset-top,20px) env(safe-area-inset-right,20px) env(safe-area-inset-bottom,20px) env(safe-area-inset-left,20px)}
+#menu-screen h1{font-size:clamp(28px,6vw,56px);margin-bottom:8px;text-shadow:0 0 30px #4a9eff,0 0 60px #2a5eaa;word-break:break-word}
+#menu-screen .subtitle{font-size:clamp(14px,3vw,22px);color:#88aadd;margin-bottom:clamp(16px,4vh,40px)}
+
+/* Кнопка меню: адаптивная, минимум 44px touch zone */
+.menu-btn{background:linear-gradient(135deg,#2a5eaa,#4a9eff);border:none;color:#fff;padding:clamp(10px,1.5vh,16px) clamp(24px,5vw,48px);font-size:clamp(14px,2.5vw,20px);border-radius:8px;cursor:pointer;margin:clamp(4px,0.8vh,8px);transition:transform .1s,box-shadow .1s,background .2s;box-shadow:0 4px 15px rgba(74,158,255,.3);min-height:44px;display:flex;align-items:center;justify-content:center;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.menu-btn:active{transform:scale(.95)}
+.menu-btn:focus-visible{outline:3px solid #4a9eff;outline-offset:2px}
+
+/* Hover только на устройствах с мышью */
+@media(hover:hover){
+  .menu-btn:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(74,158,255,.5)}
+}
+@media(hover:none){
+  .menu-btn:active{transform:scale(.95);background:linear-gradient(135deg,#1a4a8a,#3a7edd)}
+}
+
+/* ==================== ОВЕРЛЕЙНЫЕ ЭКРАНЫ ==================== */
+#pause-screen,#gameover-screen,#victory-screen,#level-screen{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:90;color:#fff;text-align:center;padding:env(safe-area-inset-top,20px) env(safe-area-inset-right,20px) env(safe-area-inset-bottom,20px) env(safe-area-inset-left,20px)}
+
+/* Экран с прокруткой: upgrade и settings */
+#upgrade-screen,#settings-screen{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:flex-start;background:rgba(0,0,0,.85);z-index:90;color:#fff;text-align:center;overflow-y:auto;padding:env(safe-area-inset-top,16px) env(safe-area-inset-right,10px) env(safe-area-inset-bottom,16px) env(safe-area-inset-left,10px);-webkit-overflow-scrolling:touch}
+
+#pause-screen h2,#gameover-screen h2,#victory-screen h2,#level-screen h2,#upgrade-screen h2,#settings-screen h2{font-size:clamp(22px,5vw,42px);margin-bottom:clamp(8px,2vh,20px);word-break:break-word}
+#gameover-screen h2{color:#e74c3c}
+#victory-screen h2{color:#f1c40f}
+
+.stat-line{font-size:clamp(14px,2.5vw,20px);margin:clamp(2px,0.5vh,6px) 0;color:#ccc}
+
+/* ==================== UPGRADE / SETTINGS ПАНЕЛИ ==================== */
+#upgrade-screen h2,#settings-screen h2{position:sticky;top:0;background:rgba(0,0,0,.85);padding-bottom:12px;width:100%;z-index:1}
+.upgrade-panel,.settings-panel{background:rgba(30,30,60,.9);border:1px solid #4a9eff;border-radius:12px;padding:clamp(12px,2vh,24px);max-width:500px;width:95%;margin:clamp(6px,1vh,12px) auto;flex-shrink:0}
+.upgrade-row,.setting-row{display:flex;justify-content:space-between;align-items:center;padding:clamp(6px,1vh,12px) 0;border-bottom:1px solid rgba(255,255,255,.1);gap:8px}
+.upgrade-row:last-child,.setting-row:last-child{border-bottom:none}
+.upgrade-info,.setting-info{flex:1;text-align:left;min-width:0}
+.upgrade-name,.setting-name{font-size:clamp(13px,2vw,17px);font-weight:bold;word-break:break-word}
+.upgrade-desc,.setting-desc{font-size:clamp(10px,1.4vw,13px);color:#aaa}
+.upgrade-cost{color:#f39c12;font-size:clamp(12px,1.8vw,15px);margin-top:2px}
+
+/* Кнопки в панелях: минимум 44px touch zone */
+.upgrade-btn,.setting-btn{background:linear-gradient(135deg,#2a5eaa,#4a9eff);border:none;color:#fff;padding:clamp(8px,1.2vh,12px) clamp(12px,2vw,20px);border-radius:6px;cursor:pointer;font-size:clamp(12px,1.6vw,15px);min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.upgrade-btn:disabled,.setting-btn:disabled{background:#555;cursor:not-allowed;opacity:.5}
+@media(hover:hover){
+  .upgrade-btn:hover:not(:disabled),.setting-btn:hover:not(:disabled){background:linear-gradient(135deg,#1a4a8a,#3a7edd)}
+}
+
+/* ==================== ВЫБОР ОРУЖИЯ ==================== */
+.weapon-select{display:flex;flex-wrap:wrap;gap:clamp(4px,0.8vw,10px);justify-content:center;margin:clamp(6px,1vh,12px) 0}
+.weapon-btn{background:rgba(40,40,80,.8);border:2px solid #555;color:#fff;padding:clamp(8px,1.2vh,12px) clamp(10px,1.5vw,16px);border-radius:8px;cursor:pointer;font-size:clamp(11px,1.6vw,14px);text-align:center;min-width:clamp(70px,15vw,100px);min-height:44px;transition:border-color .2s,background .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.weapon-btn.active{border-color:#4a9eff;box-shadow:0 0 10px rgba(74,158,255,.4)}
+@media(hover:hover){
+  .weapon-btn:hover{border-color:#88ccff;background:rgba(50,50,100,.9)}
+}
+
+/* ==================== SETTINGS КОНТРОЛЫ ==================== */
+.setting-control{display:flex;gap:clamp(4px,0.8vw,10px);align-items:center;flex-shrink:0}
+.setting-control input[type="range"]{width:clamp(70px,15vw,120px);height:44px;cursor:pointer}
+.setting-control select{background:#333;color:#fff;border:1px solid #555;padding:clamp(8px,1.2vh,12px) clamp(6px,1vw,10px);border-radius:4px;font-size:clamp(11px,1.6vw,14px);min-height:44px;cursor:pointer}
+
+/* ==================== RESPONSIVE: SMALL SCREENS ==================== */
+@media(max-width:360px){
+  .upgrade-row,.setting-row{flex-direction:column;align-items:stretch;gap:4px}
+  .setting-control{justify-content:flex-end}
+  .upgrade-btn,.setting-btn{width:100%}
+}
+
+/* Landscape на мобильных */
+@media(max-height:450px){
+  .menu-btn{padding:6px 16px;font-size:12px;min-height:36px}
+  #menu-screen h1{font-size:clamp(20px,4vw,32px)}
+  #pause-screen h2,#gameover-screen h2,#victory-screen h2{font-size:clamp(18px,4vw,28px)}
+  .stat-line{font-size:12px;margin:1px 0}
+  .upgrade-panel,.settings-panel{padding:8px 12px}
+}
+
+/* ==================== TABLET ==================== */
+@media(min-width:768px) and (max-width:1024px){
+  .upgrade-panel,.settings-panel{max-width:450px}
+  .menu-btn{font-size:clamp(16px,2.5vw,20px)}
+}
+
+/* Большие экраны: ограничиваем ширину */
+@media(min-width:1600px){
+  .upgrade-panel,.settings-panel{max-width:550px}
+}
