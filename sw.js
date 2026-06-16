@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "tanks-v5.0.0";
+const CACHE_NAME = "tanks-v5.3.0";
 const CACHE_URLS = [
   "./",
   "./index.html",

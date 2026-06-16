@@ -761,8 +761,10 @@ function initInput() {
   canvas.addEventListener('mouseup', () => { mouse.down = false; });
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
-  // Mobile touch
+  // Mobile touch — только дляanvas, НЕ для joystick/fire/weapon кнопок
   canvas.addEventListener('touchstart', (e) => {
+    // Игнорируем touch на элементах управления
+    if (e.target.closest('#mobile-controls') || e.target.closest('#ui-overlay')) return;
     initAudio();
     isMobile = true;
     let touch = e.touches[0];
@@ -773,6 +775,7 @@ function initInput() {
     mouse.down = true;
   });
   canvas.addEventListener('touchmove', (e) => {
+    if (e.target.closest('#mobile-controls') || e.target.closest('#ui-overlay')) return;
     e.preventDefault();
     let touch = e.touches[0];
     mouse.x = touch.clientX;
@@ -955,6 +958,7 @@ function updateHUD() {
   document.getElementById('m-base').textContent = 'BASE '+bh;
   document.getElementById('m-money').textContent = '\u{1F4B0}'+money;
   document.getElementById('m-weapon').textContent = getWeapon().name;
+  document.getElementById('m-score').textContent = score;
   document.getElementById('m-wave').textContent = waveNumber+'/'+totalWaves;
   document.getElementById('m-combo').textContent = 'x'+comboMultiplier.toFixed(1);
 

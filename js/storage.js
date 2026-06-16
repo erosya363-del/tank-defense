@@ -37,8 +37,10 @@ function applySettings() {
   CONFIG.MAP_W = settings.mapSize === 'small' ? 1600 : settings.mapSize === 'large' ? 3200 : 2400;
   CONFIG.MAP_H = CONFIG.MAP_W;
   gameSpeed = settings.gameSpeed;
-  if (typeof updateMusicVolume === 'function') updateMusicVolume();
-  if (typeof updateSfxVolume === 'function') updateSfxVolume();
+  // Обновляем громкость SFX напрямую
+  if (sfxGain) {
+    sfxGain.gain.value = settings.sfxEnabled ? settings.sfxVolume : 0;
+  }
 }
 
 // ==================== SAVE SYSTEM ====================
